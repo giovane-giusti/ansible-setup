@@ -21,7 +21,17 @@
       policy: targeted
       state: permissive
 
-  - name: upgrade all packages
+  - name: Installing BOTO3
+    yum:
+      name: {{ packages }}
+      state: latest
+    vars: 
+      packages:
+      - boto3
+      - phyton
+  
+  - name: Upgrading all packages
     yum:
       name: '*'
       state: latest
+
