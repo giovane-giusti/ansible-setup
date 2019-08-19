@@ -23,7 +23,7 @@
 
   - name: Installing BOTO3
     yum:
-      name: {{ packages }}
+      name: "{{ packages }}"
       state: latest
     vars: 
       packages:
