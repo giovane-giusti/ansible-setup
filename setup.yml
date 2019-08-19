@@ -1,5 +1,5 @@
 ---
-- name: Basic hardening of OS
+- name: Basic machine post configurations
   hosts: all
   become: true
   tasks:
@@ -21,14 +21,8 @@
       policy: targeted
       state: permissive
 
-  - name: Installing BOTO3
-    yum:
-      name: "{{ packages }}"
-      state: latest
-    vars: 
-      packages:
-      - boto3
-      - phyton
+  - pip:
+      name: boto3
   
   - name: Upgrading all packages
     yum:
